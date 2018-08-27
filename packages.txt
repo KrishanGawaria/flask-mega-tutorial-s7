@@ -1,3 +1,12 @@
 flask
 python-dotenv : for using .env file
 flask-wtf  : to handle web forms
+
+Section 4:
+
+flask-sqlalchemy : 
+	The first is Flask-SQLAlchemy, an extension that provides a Flask-friendly wrapper to the popular SQLAlchemy package, which is an Object Relational Mapper or ORM. ORMs allow applications to manage a database using high-level entities such as classes, objects and methods instead of tables and SQL. The job of the ORM is to translate the high-level operations into database commands.
+
+flask-migrate :
+	This extension is a Flask wrapper for Alembic, a database migration framework for SQLAlchemy.
+
