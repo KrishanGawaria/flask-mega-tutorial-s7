@@ -17,5 +17,11 @@ flask-login :
 
 	 flask-login extension manages the user logged-in state, so that for example users can log in to the application and then navigate to different pages while the application "remembers" that the user is logged in. It also provides the "remember me" functionality that allows users to remain logged in even after closing the browser window.
 
+
+Section 6 :
+	No package installed in this section
+
+
+
 	 
 

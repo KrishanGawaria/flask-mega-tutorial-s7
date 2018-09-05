@@ -14,6 +14,8 @@
           <!-- current_user.is_anonymous is true when user is not logged in -->
             <a href={{ url_for('login') }}>Login</a>
           {% else %}
+            <!-- Below, username value is given because this view function ('user') requires username in its route -->
+            <a href={{url_for('user', username=current_user.username)}}>Profile</a>
             <a href={{ url_for('logout') }}>Logout</a>
           {% endif %}
         </div>

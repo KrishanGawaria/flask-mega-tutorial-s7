@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
+from wtforms.validators import DataRequired, EqualTo, Email, ValidationError, Length
 
 from app.models import User
 
@@ -11,7 +11,7 @@ class LoginForm(FlaskForm):
 	submit = SubmitField("Sign In")
 
 
-class RegistrationForm(LoginForm):
+class RegistrationForm(FlaskForm):
 	username = StringField("Username", validators=[DataRequired()])
 	email = StringField("Email", validators=[DataRequired(), Email()])
 	password = PasswordField("Password", validators=[DataRequired()])
@@ -28,12 +28,10 @@ class RegistrationForm(LoginForm):
 		if user is not None:
 			raise ValidationError('Please use a Different Email Address')
 
-	# I need not call these functions manually. Form will automatically validate the 
-	# 	username and email by calling these methods.
-	# When you add any methods that match the pattern validate_<field_name>, WTForms 
-	# takes those as custom validators and invokes them in addition to the stock validators. 
-	# In this case I want to make sure that the username and email address entered by the 
-	# user are not already in the database, so these two methods issue database queries 
-	# expecting there will be no results. In the event a result exists, a validation error 
-	# is triggered by raising ValidationError. The message included as the argument in the 
-	# exception will be the message that will be displayed next to the field for the user to see.
+
+# Adding the form for profile editor
+class EditProfileForm(FlaskForm):
+	username = StringField('username', validators=[DataRequired()])
+	about_me = StringField('About me', validators=[Length(min=0, max=140)])
+	submit = SubmitField('Submit')
+	
