@@ -12,7 +12,13 @@ class Config(object):
 	# data is to be stored. (location of the application's database)
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI') or 'sqlite:///' + os.path.join(basedir, 'app.db')
 
-	# The SQLALCHEMY_TRACK_MODIFICATIONS configuration option is set to False 
-	# to disable a feature of Flask-SQLAlchemy that I do not need, which is to 
-	# signal the application every time a change is about to be made in the database.
+
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+	# Configuring the mail server
+	MAIL_SERVER = os.environ.get('MAIL_SERVER')
+	MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
+	MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
+	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+	ADMINS = ['krishan.garg12@gmail.com']	# To this list of mails, email will be sent
