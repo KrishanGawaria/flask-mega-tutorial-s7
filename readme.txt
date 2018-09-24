@@ -138,6 +138,8 @@ Section 7:
 		export MAIL_USERNAME=ice.effort
 		export MAIL_PASSWORD=**********
 
+		NOTE: 1. MCAfee should be disabled for this.
+					2. It won't work on Dell Corp. (as it accesses the googlemail (gmail))
 	If you are using Microsoft Windows, remember to use set instead of export in each of
 	 the statements above.
 
